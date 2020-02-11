@@ -52,7 +52,7 @@ class Decks extends React.Component {
                     <Text style={styles.name}>{item.name}</Text>
                     <Text style={styles.count}>{item.cards.length} ${pluralize(
                         "Card",
-                        cardCount
+                        item.cards.length
                       )}`}
                     </Text>
                  </TouchableOpacity>
