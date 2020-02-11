@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList , TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
 import { retrieveDecks } from "../utils/api";
 import { showDecks } from "../actions";
 import { white } from "../utils/colors";
 import pluralize from "pluralize";
 
+import { white, purple, gray } from "./src/utils/colors";
 
 import AddDeck from "./src/components/AddDeck";
 import DeckDetails from "./src/components/DeckDetails";
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    backgroundColor: green,
+    backgroundColor: purple,
     margin: 10,
     padding: 15,
     width: 300
