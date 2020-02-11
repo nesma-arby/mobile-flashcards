@@ -58,7 +58,7 @@ function MyTabs() {
 class App extends React.Component {
 
   componentDidMount() {
-    setLocalNotification();
+    // setLocalNotification();
   }
 
   render() {
