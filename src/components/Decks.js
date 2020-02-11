@@ -1,9 +1,9 @@
 import React from 'react';
-
 import { View, Text, StyleSheet, FlatList , TouchableHighlight,
 TouchableOpacity, TouchableNativeFeedback , TouchableWithoutFeedback ,
 Image , ScrollView , KeyboardAvoidingViewComponent , TextInput ,
  } from "react-native";
+
  import { connect } from "react-redux";
 import { retrieveDecks } from "../utils/api";
 import { showDecks } from "../action";
@@ -13,7 +13,7 @@ import { showDecks } from "../action";
    render(){
       return (
         <View style={styles.container}>
-          <Text> hello ahmed  </Text>
+          <Text> Decks  </Text>
         </View>
       );
    }
