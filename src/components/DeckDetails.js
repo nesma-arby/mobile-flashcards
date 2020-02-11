@@ -1,20 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { connect } from "react-redux";
+import { retrieveDecks } from "../utils/api";
+import { showDecks } from "../actions";
+import { white } from "../utils/colors";
 
 class DeckDetails extends React.Component {
+
+    state = {
+        ready: false
+      };
+    
+      componentDidMount() {
+        retrieveDecks()
+          .then(decks => this.props.receiveDecks(decks))
+          .then(() => {
+            this.setState({ ready: true });
+          });
+      }
+
 
     render() {
 
         return (
 
-            <View style={styles.container}>
+            if (!this.state.ready) {
+                return (
+                  <View style={styles.blank}>
+                    <Text>Loading...</Text>
+                  </View>
+                );
+              } else {
 
-                <Text>
-
-                DeckDetails
-                    
-                </Text>
-            </View>
+                
+              }
         )
     }
 }
@@ -28,5 +47,15 @@ const styles = StyleSheet.create({
     },
   });
   
+
+  export function mapStateToProps(mystate){
+      return{
+          mystate
+      }
+  }
+
+  const mapDispatchToProps = dispatch => ({
+    receiveDecks: (decks) => dispatch(showDecks(decks))
+  });
 
 export default DeckDetails

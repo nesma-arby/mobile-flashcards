@@ -7,28 +7,28 @@ const decks = (state = initialState, action) => {
     case RECIEVE_DECK:
       return {
         ...state,
-        // ...action.decks
+        ...action.decks
       };
     case ADD_DECK: {      
       return {
         ...state,
-        // [action.id]: {
-        //   id: action.id,
-        //   name: action.name,
-        //   cards: []
-        // }
+        [action.id]: {
+          id: action.id,
+          name: action.name,
+          cards: []
+        }
       };
     }
     case ADD_CARD: {
       return {
         ...state,
-        // [action.deckId]: {
-        //   ...state[action.deckId],
-        //   cards: [
-        //     ...state[action.deckId].cards,
-        //     { question: action.question, answer: action.answer }
-        //   ]
-        // }
+        [action.deckId]: {
+          ...state[action.deckId],
+          cards: [
+            ...state[action.deckId].cards,
+            { question: action.question, answer: action.answer }
+          ]
+        }
       };
     }
     default:

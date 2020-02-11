@@ -37,17 +37,16 @@ const FlashcardsStatusBar = ({ backgroundColor, ...props }) => (
 );
 
 
-
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
-    initialRouteName="Decks"
-    tabBarOptions={{
-      activeTintColor: '#e91e63',
-    }}
+      initialRouteName="Decks"
+      tabBarOptions={{
+        activeTintColor: '#e91e63',
+      }}
     >
-      <Tab.Screen name="Decks" component={Decks}  
+      <Tab.Screen name="Decks" component={Decks}
         options={{
           tabBarLabel: 'Decks',
           tabBarIcon: ({ color, size }) => (
@@ -55,13 +54,13 @@ function MyTabs() {
           ),
         }}
       />
-      <Tab.Screen name="AddDeck" component={AddDeck} 
-      options={{
-        tabBarLabel: 'New Deck',
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="plus" color={color} size={size} />
-        ),
-      }}
+      <Tab.Screen name="AddDeck" component={AddDeck}
+        options={{
+          tabBarLabel: 'New Deck',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="plus" color={color} size={size} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
@@ -100,7 +99,7 @@ function MyStack() {
           title: 'Quiz',
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="QuizResult"
         component={QuizResult}
         options={{
@@ -139,17 +138,6 @@ class App extends React.Component {
 
 
 }
-
-
-
-const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   backgroundColor: '#fff',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
-});
 
 
 export default App
