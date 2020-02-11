@@ -1,13 +1,15 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
-// import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import { Constants } from "expo";
 
 import { white, purple, gray } from "./src/utils/colors";
 import { setLocalNotification } from "./src/utils/helpers";
-// import {FontAwesome , Ionicons}  from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
@@ -19,35 +21,45 @@ import reducer from "./src/reducer";
 // import all components
 import Decks from "./src/components/Decks";
 import AddDeck from "./src/components/AddDeck";
+
 import AddCard from "./src/components/AddCard";
-import DeckDetail from "./src/components/DeckDetails";
+import DeckDetails from "./src/components/DeckDetails";
 import Quiz from "./src/components/Quiz";
 import QuizResult from "./src/components/QuizResult";
 
+import { setLocalNotification } from "./src/utils/helpers";
+
+
+const FlashcardsStatusBar = ({ backgroundColor, ...props }) => (
+  <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+    <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+
+
 
 const Tab = createBottomTabNavigator();
-
 function MyTabs() {
   return (
     <Tab.Navigator
-    initialRouteName="Home"
+    initialRouteName="Decks"
     tabBarOptions={{
       activeTintColor: '#e91e63',
     }}
     >
       <Tab.Screen name="Decks" component={Decks}  
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Decks',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="list" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen name="AddDeck" component={AddDeck} 
       options={{
-        tabBarLabel: 'Add',
+        tabBarLabel: 'New Deck',
         tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="bell" color={color} size={size} />
+          <MaterialCommunityIcons name="plus" color={color} size={size} />
         ),
       }}
       />
@@ -55,10 +67,54 @@ function MyTabs() {
   );
 }
 
+
+const Stack = createStackNavigator();
+function MyStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Home"
+      headerMode="screen"
+      screenOptions={{
+        headerTintColor: 'white',
+        headerStyle: { backgroundColor: 'tomato' },
+      }}
+    >
+      <Stack.Screen
+        name="AddCard"
+        component={AddCard}
+        options={{
+          title: 'New Card',
+        }}
+      />
+      <Stack.Screen
+        name="DeckDetails"
+        component={DeckDetails}
+        options={{
+          title: 'Deck Details',
+        }}
+      />
+      <Stack.Screen
+        name="Quiz"
+        component={Quiz}
+        options={{
+          title: 'Quiz',
+        }}
+      />
+       <Stack.Screen
+        name="QuizResult"
+        component={QuizResult}
+        options={{
+          title: 'Quiz Result',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 class App extends React.Component {
 
   componentDidMount() {
-    // setLocalNotification();
+    setLocalNotification();
   }
 
   render() {
@@ -66,9 +122,13 @@ class App extends React.Component {
     return (
 
       <Provider store={createStore(reducer)}>
-         <NavigationContainer>
-            <MyTabs />
-        </NavigationContainer>
+        <View style={{ flex: 1 }}>
+          <FlashcardsStatusBar
+            backgroundColor={purple}
+            barStyle="light-content"
+          />
+          <Stack />
+        </View>
       </Provider>
 
     )
