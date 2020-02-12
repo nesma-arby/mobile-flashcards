@@ -106,7 +106,7 @@ function MyStack() {
   );
 }
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   componentDidMount() {
     setLocalNotification();
@@ -136,4 +136,3 @@ class App extends React.Component {
 }
 
 
-export default App
