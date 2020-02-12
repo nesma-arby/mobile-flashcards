@@ -1,5 +1,5 @@
 
-import React , {Component} from 'react';
+import React from 'react';
 import { View, StatusBar } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,6 +10,7 @@ import { purple } from "./src/utils/colors";
 import { setLocalNotification } from "./src/utils/helpers";
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import Constants from "expo-constants";
 
 // imports for redux
 import { createStore } from "redux";
@@ -95,37 +96,33 @@ function MyStack() {
           title: 'Quiz',
         }}
       />
-      <Stack.Screen
-        name="QuizResult"
-        component={QuizResult}
-        options={{
-          title: 'Quiz Result',
-        }}
-      />
     </Stack.Navigator>
   );
 }
 
 
-export default function App() {
+class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
 
-  setLocalNotification();
-
-  return (
-
-    <Provider store={createStore(reducer)}>
-      <View style={{ flex: 1 }}>
-        <FlashcardsStatusBar
-          backgroundColor={purple}
-          barStyle="light-content"
-        />
-          <Tab />
-      </View>
-    </Provider>
-
-  )
-
+  render() {
+    return (
+      <Provider store={createStore(reducer)}>
+        <View style={{ flex: 1 }}>
+          <FlashcardsStatusBar
+            backgroundColor={purple}
+            barStyle="light-content"
+          />
+          <Stack />
+        </View>
+      </Provider>
+    );
+  }
 }
+
+export default App;
+
 
 
 
