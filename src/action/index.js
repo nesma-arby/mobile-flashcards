@@ -9,7 +9,7 @@ export const showDecks = (decks) =>{
 }
 
 
-export const AddDeck = (id,title) =>{
+export const createDeck = (id,title) =>{
     const action = {
         type:ADD_DECK,
         id,
@@ -19,7 +19,7 @@ export const AddDeck = (id,title) =>{
 }
 
 
-export const AddCard = (deckId, question , answer) =>{
+export const createCard = (deckId, question , answer) =>{
     const action = {
         type:ADD_CARD,
         deckId,

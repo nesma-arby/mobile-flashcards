@@ -9,7 +9,7 @@ import {
     TouchableOpacity
 } from "react-native";
 import { white, gray } from "../utils/colors";
-import { AddCard } from "../action/index";
+import { createCard } from "../action/index";
 import { saveCard } from "../utils/api";
 
 class AddCard extends React.Component {
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 
 
 const mapDispatchToProps = dispatch => ({
-    createCard: (deckId, question, answer) => dispatch(AddCard(deckId, question, answer))
+    createCard: (deckId, question, answer) => dispatch(createCard(deckId, question, answer))
 })
 
 

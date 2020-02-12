@@ -7,7 +7,7 @@ import {
     KeyboardAvoidingView,
     TouchableOpacity
 } from "react-native";
-import { AddDeck } from "../action/index";
+import { createDeck } from "../action/index";
 import { saveDeck } from "../utils/api";
 import { generateId } from "../utils/helpers";
 import { white, gray } from "../utils/colors";
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
 
 
 const mapDispatchToProps = dispatch => ({
-    createDeck: (id, dickName) => dispatch(saveDeck(id, dickName))
+    createDeck: (id, dickName) => dispatch(createDeck(id, dickName))
 })
 
 
