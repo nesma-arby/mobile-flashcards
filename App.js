@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React , {Component} from 'react';
 import { View, StatusBar } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -106,7 +106,7 @@ function MyStack() {
   );
 }
 
-export default class App extends React.Component {
+export default class App extends Component  {
 
   componentDidMount() {
     setLocalNotification();
