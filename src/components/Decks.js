@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList , TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
 import { retrieveDecks } from "../utils/api";
-import { showDecks } from "../actions";
+import { showDecks } from "../action/index";
 import pluralize from "pluralize";
 
 import { white, purple, gray } from "./src/utils/colors";

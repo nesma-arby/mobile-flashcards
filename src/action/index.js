@@ -5,7 +5,6 @@ export const showDecks = (decks) =>{
         type:RECIEVE_DECK,
         decks
     }
-    console.log(action);
     return action
 }
 
