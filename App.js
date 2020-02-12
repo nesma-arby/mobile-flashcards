@@ -106,33 +106,27 @@ function MyStack() {
   );
 }
 
-export default class App extends Component  {
 
-  componentDidMount() {
-    setLocalNotification();
-  }
+export default function App() {
 
-  render() {
+  setLocalNotification();
 
-    return (
+  return (
 
-      <Provider store={createStore(reducer)}>
-        <View style={{ flex: 1 }}>
-          <FlashcardsStatusBar
-            backgroundColor={purple}
-            barStyle="light-content"
-          />
+    <Provider store={createStore(reducer)}>
+      <View style={{ flex: 1 }}>
+        <FlashcardsStatusBar
+          backgroundColor={purple}
+          barStyle="light-content"
+        />
           <Tab />
-        </View>
-      </Provider>
+      </View>
+    </Provider>
 
-    )
-
-
-
-  }
-
+  )
 
 }
+
+
 
 
