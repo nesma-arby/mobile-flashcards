@@ -1,14 +1,13 @@
 
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { View, StatusBar } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Constants } from "expo";
 
-import { white, purple, gray } from "./src/utils/colors";
+import { purple } from "./src/utils/colors";
 import { setLocalNotification } from "./src/utils/helpers";
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
@@ -27,7 +26,6 @@ import DeckDetails from "./src/components/DeckDetails";
 import Quiz from "./src/components/Quiz";
 import QuizResult from "./src/components/QuizResult";
 
-import { setLocalNotification } from "./src/utils/helpers";
 
 
 const FlashcardsStatusBar = ({ backgroundColor, ...props }) => (
@@ -126,7 +124,7 @@ class App extends React.Component {
             backgroundColor={purple}
             barStyle="light-content"
           />
-          <Stack />
+          <Tab />
         </View>
       </Provider>
 
