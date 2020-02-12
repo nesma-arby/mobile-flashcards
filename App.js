@@ -4,7 +4,6 @@ import { View, StatusBar } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import { Constants } from "expo";
 
 import { purple } from "./src/utils/colors";
@@ -20,7 +19,6 @@ import reducer from "./src/reducer";
 // import all components
 import Decks from "./src/components/Decks";
 import AddDeck from "./src/components/AddDeck";
-
 import AddCard from "./src/components/AddCard";
 import DeckDetails from "./src/components/DeckDetails";
 import Quiz from "./src/components/Quiz";
