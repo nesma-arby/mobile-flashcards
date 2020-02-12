@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View , TouchableOpacity } from 'react-native';
 import { purple, white, gray } from "../utils/colors";
 
-const QuizResut = ({
+const QuizResult = ({
     correctAnswerCount,
     incorrectAnswerCount,
     restartQuiz,

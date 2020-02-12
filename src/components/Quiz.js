@@ -108,7 +108,7 @@ class Quiz extends React.Component {
 
             : (
 
-                <QuizResults
+                <QuizResult
                     correctAnswerCount={correctAnswerCount}
                     incorrectAnswerCount={incorrectAnswerCount}
                     restartQuiz={this.restartQuiz}
