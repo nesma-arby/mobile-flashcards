@@ -4,7 +4,6 @@ import { View, StatusBar } from 'react-native';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Constants } from "expo";
 
 import { purple } from "./src/utils/colors";
 import { setLocalNotification } from "./src/utils/helpers";
@@ -114,7 +113,7 @@ class App extends React.Component {
             backgroundColor={purple}
             barStyle="light-content"
           />
-          <Stack />
+          <Tab />
         </View>
       </Provider>
     );
