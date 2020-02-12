@@ -5,7 +5,7 @@ import { retrieveDecks } from "../utils/api";
 import { showDecks } from "../action/index";
 import pluralize from "pluralize";
 
-import { white, purple, gray } from "./src/utils/colors";
+import { white, purple, gray } from "../utils/colors";
 
 import AddDeck from "./src/components/AddDeck";
 import DeckDetails from "./src/components/DeckDetails";
