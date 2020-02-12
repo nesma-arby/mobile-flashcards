@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, FlatList , TouchableOpacity } from 'react-nativ
 import { connect } from "react-redux";
 import { retrieveDecks } from "../utils/api";
 import { showDecks } from "../actions";
-import { white } from "../utils/colors";
 import pluralize from "pluralize";
 
 import { white, purple, gray } from "./src/utils/colors";
